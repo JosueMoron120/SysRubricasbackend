@@ -72,6 +72,15 @@ public class RubricasServiceImp implements RubricasService {
 		// TODO Auto-generated method stub
 		return ru.getNivelRubrica(id);
 	}
-	
+
+	@Override
+	public int deletRubrica(int id) {
+		// TODO Auto-generated method stub
+		return ru.deletRubrica(id);
+	}
+
+
+
+
 
 }

@@ -31,19 +31,25 @@ public class RubricasDaoImp implements RubricasDao {
 	private SimpleJdbcCall simpleJdbcCall;
 	@Override
 	public int createRubrica(Rubrica rubrica) {
-		return jdbcTemplate.update("CALL pk_rubricas.sp_create_rubrica(?,?)", rubrica.getId_curso_proyecto(), rubrica.getPeso());
+		return jdbcTemplate.update("CALL pk_rubricas.SP_CREATE_RUBRICA(?,?)", rubrica.getId_carga(), rubrica.getPeso());
 
 	}
 	@Override
 	public int createCriterio(Criterio indicador) {
 		// TODO Auto-generated method stub
-		return 0;
+		return jdbcTemplate.update("CALL pk_rubricas.SP_CREATE_CRITERIO(? ,?, ? )", indicador.getId_rubricas(), indicador.getNombre(), indicador.getPeso() );
 	}
 	@Override
 	public int createNivelRubrica(CriterioNivel nivelRubrica) {
-		// TODO Auto-generated method stub
-		return 0;
+		return jdbcTemplate.update("CALL PK_RUBRICAS.SP_CREATE_CRITERIO_NIVEL(? , ?, ? )", nivelRubrica.getId_nivel(), nivelRubrica.getId_criterio(),  nivelRubrica.getDescripcion());
+		
 	}
+	public int deletRubrica(int id) {
+		return jdbcTemplate.update("CALL PK_RUBRICAS.SP_DELETE_RUBRICA(?)",id);
+	}
+	
+	
+	
 	@Override
 	public List<v_Rubrica> getRubricas(int id) {
 	    simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
@@ -100,12 +106,13 @@ public class RubricasDaoImp implements RubricasDao {
 	public List<v_CriterioNivel> getNivelRubrica(int id) {
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
                 .withCatalogName("PK_RUBRICAS")
-                .withProcedureName("SP_LISTAR_NIVEL_RUBRICA")
+                .withProcedureName("SP_LISTAR_CRITERIO_NIVEL")
                 .returningResultSet("CURSOR_NIVEL_RUBRICA",
                 		BeanPropertyRowMapper.newInstance(v_CriterioNivel.class));
         Map in = Collections.singletonMap("idcrit",id);
         return simpleJdbcCall.executeObject(List.class,in);
 	}
+	
 
 	
 	

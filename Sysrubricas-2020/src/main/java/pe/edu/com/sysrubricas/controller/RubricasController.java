@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +33,14 @@ public class RubricasController {
     public ResponseEntity<Rubrica> createRubrica(@RequestBody Rubrica rubrica){
     	rubricaService.createRubrica(rubrica);
         return new ResponseEntity<Rubrica>(rubrica, HttpStatus.CREATED);
+        
     }
+    @DeleteMapping("/{id}")
+    public int delete(@PathVariable int id) {
+		return rubricaService.deletRubrica(id);
+	}
+    
+    
     //listar rubricas x proyecto
     @GetMapping("{id}")
     public Map<String, List<v_Rubrica>> getRubricas(@PathVariable int id){

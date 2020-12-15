@@ -16,7 +16,7 @@ import pe.edu.com.sysrubricas.entity.Semestre;
 import pe.edu.com.sysrubricas.service.SemestreService;
 
 @RestController
-@RequestMapping("/semestres")
+@RequestMapping("/semestre")
 
 public class SemestreController {
 	@Autowired

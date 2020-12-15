@@ -3,14 +3,14 @@ package pe.edu.com.sysrubricas.entity;
 public class v_Curso {
 	 private int id_carga;
 	    private int id_proyecto;
-	    private int id_curso;
+	    private int id_curso_proyecto;
 	    private String curso;
 	    private String docente;
-		public v_Curso(int id_carga, int id_proyecto, int id_curso, String curso, String docente) {
+		public v_Curso(int id_carga, int id_proyecto, int id_curso_proyecto, String curso, String docente) {
 			super();
 			this.id_carga = id_carga;
 			this.id_proyecto = id_proyecto;
-			this.id_curso = id_curso;
+			this.id_curso_proyecto = id_curso_proyecto;
 			this.curso = curso;
 			this.docente = docente;
 		}
@@ -29,11 +29,11 @@ public class v_Curso {
 		public void setId_proyecto(int id_proyecto) {
 			this.id_proyecto = id_proyecto;
 		}
-		public int getId_curso() {
-			return id_curso;
+		public int getId_curso_proyecto() {
+			return id_curso_proyecto;
 		}
-		public void setId_curso(int id_curso) {
-			this.id_curso = id_curso;
+		public void setId_curso_proyecto(int id_curso_proyecto) {
+			this.id_curso_proyecto = id_curso_proyecto;
 		}
 		public String getCurso() {
 			return curso;

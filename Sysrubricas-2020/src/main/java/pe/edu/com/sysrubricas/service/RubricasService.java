@@ -12,6 +12,7 @@ import pe.edu.com.sysrubricas.entity.v_Rubrica;
 
 public interface RubricasService {
     int createRubrica(Rubrica rubrica);
+    int deletRubrica(int id);
     int createCriterio(Criterio indicador);
     int createNivelRubrica(CriterioNivel nivelRubrica);
     List<v_Rubrica> getRubricas(int id);
