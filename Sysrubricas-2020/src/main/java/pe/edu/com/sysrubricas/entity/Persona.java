@@ -2,12 +2,12 @@ package pe.edu.com.sysrubricas.entity;
 
 public class Persona {
 	 private int idpersona;
-	   private String nombres;
-	   private String apepat;
-	   private String apemat;
-	   private String dni;
-	   private String telefono;
-	   private char estado;
+	 private String nombres;
+	 private String apepat;
+	 private String apemat;
+	 private String dni;
+	 private String telefono;
+	 private char estado;
 	public Persona() {
 		super();
 	}
