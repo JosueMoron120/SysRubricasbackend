@@ -1,27 +1,27 @@
 package pe.edu.com.sysrubricas.entity;
 
 public class Usuario {
-	private int idusuario;
+	private int id_usuario;
 	private String username;
 	private String password;
-	private int idpersona;
+	private int id_persona;
 	private char estado;
+	public Usuario(int id_usuario, String username, String password, int id_persona, char estado) {
+		super();
+		this.id_usuario = id_usuario;
+		this.username = username;
+		this.password = password;
+		this.id_persona = id_persona;
+		this.estado = estado;
+	}
 	public Usuario() {
 		super();
 	}
-	public Usuario(int idusuario, String username, String password, int idpersona, char estado) {
-		super();
-		this.idusuario = idusuario;
-		this.username = username;
-		this.password = password;
-		this.idpersona = idpersona;
-		this.estado = estado;
+	public int getId_usuario() {
+		return id_usuario;
 	}
-	public int getIdusuario() {
-		return idusuario;
-	}
-	public void setIdusuario(int idusuario) {
-		this.idusuario = idusuario;
+	public void setId_usuario(int id_usuario) {
+		this.id_usuario = id_usuario;
 	}
 	public String getUsername() {
 		return username;
@@ -35,11 +35,11 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getIdpersona() {
-		return idpersona;
+	public int getId_persona() {
+		return id_persona;
 	}
-	public void setIdpersona(int idpersona) {
-		this.idpersona = idpersona;
+	public void setId_persona(int id_persona) {
+		this.id_persona = id_persona;
 	}
 	public char getEstado() {
 		return estado;
@@ -47,6 +47,9 @@ public class Usuario {
 	public void setEstado(char estado) {
 		this.estado = estado;
 	}
+	
+	
+	
 	
 	
 }

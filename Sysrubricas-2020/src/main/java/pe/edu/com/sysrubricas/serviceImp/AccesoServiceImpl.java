@@ -1,26 +1,30 @@
 package pe.edu.com.sysrubricas.serviceImp;
 
+
+
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import pe.edu.com.sysrubricas.dao.PersonaDao;
-import pe.edu.com.sysrubricas.entity.Persona;
-import pe.edu.com.sysrubricas.service.PersonaService;
-@Service
-public class PersonaServiceImp implements PersonaService{
-	@Autowired
-	private PersonaDao personaDao;
+import pe.edu.com.sysrubricas.dao.AccesosDao;
+import pe.edu.com.sysrubricas.entity.Acceso;
+import pe.edu.com.sysrubricas.service.AccesoService;
 
+
+@Service
+public class AccesoServiceImpl implements AccesoService{
+@Autowired
+private AccesosDao accesosDao;
 	@Override
-	public int create(Persona r) {
+	public int create(Acceso a) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int update(Persona r) {
+	public int update(Acceso a) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -38,13 +42,19 @@ public class PersonaServiceImp implements PersonaService{
 	}
 
 	@Override
-	public Persona read(int id) {
+	public List<Map<String, Object>> read(int iduser) {
 		// TODO Auto-generated method stub
-		return personaDao.read(id);
+		return accesosDao.read(iduser);
 	}
 
 	@Override
-	public Map<String, Object> readAll() {
+	public List<Map<String, Object>> readAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, Object> readAll(String username) {
 		// TODO Auto-generated method stub
 		return null;
 	}

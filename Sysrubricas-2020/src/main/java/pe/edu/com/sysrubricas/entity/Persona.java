@@ -1,19 +1,17 @@
 package pe.edu.com.sysrubricas.entity;
 
 public class Persona {
-	 private int idpersona;
+	 private int id_persona;
 	   private String nombres;
 	   private String apepat;
 	   private String apemat;
 	   private String dni;
 	   private String telefono;
 	   private char estado;
-	public Persona() {
+	public Persona(int id_persona, String nombres, String apepat, String apemat, String dni, String telefono,
+			char estado) {
 		super();
-	}
-	public Persona(int idpersona, String nombres, String apepat,String apemat, String dni, String telefono, char estado) {
-		super();
-		this.idpersona = idpersona;
+		this.id_persona = id_persona;
 		this.nombres = nombres;
 		this.apepat = apepat;
 		this.apemat = apemat;
@@ -21,11 +19,14 @@ public class Persona {
 		this.telefono = telefono;
 		this.estado = estado;
 	}
-	public int getIdpersona() {
-		return idpersona;
+	public Persona() {
+		super();
 	}
-	public void setIdpersona(int idpersona) {
-		this.idpersona = idpersona;
+	public int getId_persona() {
+		return id_persona;
+	}
+	public void setId_persona(int id_persona) {
+		this.id_persona = id_persona;
 	}
 	public String getNombres() {
 		return nombres;
@@ -33,7 +34,6 @@ public class Persona {
 	public void setNombres(String nombres) {
 		this.nombres = nombres;
 	}
-	
 	public String getApepat() {
 		return apepat;
 	}
@@ -64,4 +64,9 @@ public class Persona {
 	public void setEstado(char estado) {
 		this.estado = estado;
 	}
+
+	   
+	   
+	   
+	   
 }

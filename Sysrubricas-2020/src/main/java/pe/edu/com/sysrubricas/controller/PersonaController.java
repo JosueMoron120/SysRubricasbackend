@@ -30,7 +30,7 @@ public class PersonaController {
 	@CrossOrigin(origins = "http://localhost:4200")
 	public Map<String, Object> read(@PathVariable int id ) {
 	    try {
-	         return personaService.read(id);
+	         return (Map<String, Object>) personaService.read(id);
 	    } catch (Exception e) {
 	        // TODO: handle exception
 	        System.out.println("error");
@@ -53,7 +53,7 @@ public class PersonaController {
 		@CrossOrigin(origins = "http://localhost:4200")
 		public int update(@RequestBody Persona persona, @PathVariable int id) {
 			Persona p = new Persona();
-			p.setIdpersona(id);
+			p.setId_persona(id);
 			p.setNombres(persona.getNombres());
 			p.setApepat(persona.getApepat());
 			p.setApemat(persona.getApemat());
