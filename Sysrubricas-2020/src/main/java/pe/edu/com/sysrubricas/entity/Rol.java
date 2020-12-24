@@ -1,23 +1,23 @@
 package pe.edu.com.sysrubricas.entity;
 
 public class Rol {
-	private int idrol;
+	private int id_rol;
 	private String nombre;
 	private char estado;
-	public Rol() {
+	public Rol(int id_rol, String nombre, char estado) {
 		super();
-	}
-	public Rol(int idrol, String nombre, char estado) {
-		super();
-		this.idrol = idrol;
+		this.id_rol = id_rol;
 		this.nombre = nombre;
 		this.estado = estado;
 	}
-	public int getIdrol() {
-		return idrol;
+	public Rol() {
+		super();
 	}
-	public void setIdrol(int idrol) {
-		this.idrol = idrol;
+	public int getId_rol() {
+		return id_rol;
+	}
+	public void setId_rol(int id_rol) {
+		this.id_rol = id_rol;
 	}
 	public String getNombre() {
 		return nombre;
@@ -31,5 +31,12 @@ public class Rol {
 	public void setEstado(char estado) {
 		this.estado = estado;
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 }

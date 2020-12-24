@@ -53,7 +53,7 @@ public class RolController {
 	@CrossOrigin(origins = "http://localhost:4200")
 	public int update(@RequestBody Rol rol, @PathVariable int id) {
 		Rol r = new Rol();
-		r.setIdrol(id);
+		r.setId_rol(id);
 		r.setNombre(rol.getNombre());
 		return rolService.update(r);
 	}

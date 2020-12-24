@@ -3,6 +3,7 @@ package pe.edu.com.sysrubricas.daoImp;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.ColumnMapRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SqlOutParameter;
@@ -27,7 +28,7 @@ public class PersonaDaoImp implements PersonaDao {
 	}
 	@Override
 	public int update(Persona p) {
-		return jdbcTemplate.update("call pk_persona.sp_update_persona(?,?,?,?,?,?)",p.getIdpersona(),p.getNombres(),
+		return jdbcTemplate.update("call pk_persona.sp_update_persona(?,?,?,?,?,?)",p.getId_persona(),p.getNombres(),
 				p.getApepat(),p.getApemat(),p.getDni(),p.getTelefono());
 	}
 	@Override
@@ -35,14 +36,9 @@ public class PersonaDaoImp implements PersonaDao {
 		return jdbcTemplate.update("call pk_persona.sp_delete_persona(?)", id);
 	}
 	@Override
-	public Map<String, Object> read(int id) {
-			simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)			
-			.withCatalogName("pk_persona") //nombre del paquete
-			.withProcedureName("sp_listar_persona") //nombre del procedimiento
-			.declareParameters(new SqlOutParameter("cursor_personas", OracleTypes.REF_CURSOR, new ColumnMapRowMapper()), new SqlParameter("P_idpersona", OracleTypes.INTEGER));
-			SqlParameterSource in = new MapSqlParameterSource().addValue("P_idpersona", id);
-	        Map<String, Object> map= simpleJdbcCall.execute(in);	
-			return map;	
+	public Persona read(int id) {
+		String SQL = "select * from persona where id_persona=?";
+		return jdbcTemplate.queryForObject(SQL, new Object[] {id}, new BeanPropertyRowMapper<Persona>(Persona.class));
 	}
 	@Override
 	public Map<String, Object> readAll() {

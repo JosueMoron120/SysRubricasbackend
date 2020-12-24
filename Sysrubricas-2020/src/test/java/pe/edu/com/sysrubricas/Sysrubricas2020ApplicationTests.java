@@ -1,8 +1,13 @@
 package pe.edu.com.sysrubricas;
 
 import org.junit.jupiter.api.Test;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import pe.edu.com.sysrubricas.dao.AccesosDao;
+import pe.edu.com.sysrubricas.dao.UsuarioDao;
 
 import pe.edu.com.sysrubricas.dao.CompetenciaCursoDao;
 import pe.edu.com.sysrubricas.dao.CompetenciaDao;
@@ -11,10 +16,14 @@ import pe.edu.com.sysrubricas.entity.CompetenciaCurso;
 @SpringBootTest
 class Sysrubricas2020ApplicationTests {
 	@Autowired
-	private CompetenciaCursoDao c;
+	AccesosDao pdao;
+	@Autowired
+	UsuarioDao pdao2;
+	@Autowired
+	PasswordEncoder passwordEncoder;
 	@Test
 	void contextLoads() {
-		System.out.println(c.readDinamic(1));
+		System.out.println(passwordEncoder.encode("12345"));
 	}	
 }	
 
